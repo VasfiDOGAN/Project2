@@ -5,6 +5,7 @@
         <groupId>pl.piomin</groupId>
         <artifactId>sample-spring-microservices</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath> <!-- Added relative path to parent POM -->
     </parent>
     <artifactId>zipkin-service</artifactId>
 
