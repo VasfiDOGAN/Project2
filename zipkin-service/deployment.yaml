@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zipkin-service
+  template:
+    metadata:
+      labels:
+        app: zipkin-service
+    spec:
+      containers:
+      - name: zipkin-service
+        image: vasfidogan/zipkin-service:latest
+        ports:
+        - containerPort: 9411
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "docker"  
+        - name: EUREKA_SERVER
+          value: "http://discovery-service:8761/eureka/"
